@@ -66,7 +66,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.use(new GoogleStrategy({
   clientID: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
-  callbackURL: '/auth/google/callback'
+ callbackURL: "https://project-mubashir-ecommerce.onrender.com/auth/google/callback"
 },
 async (accessToken, refreshToken, profile, done) => {
   try {
