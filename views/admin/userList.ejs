@@ -1,0 +1,37 @@
+<% layout('layout') %>
+
+<div class="container mt-4">
+  <h1 class="mb-4">All Registered Users</h1>
+
+  <% if (users.length === 0) { %>
+    <div class="alert alert-info">No users found.</div>
+  <% } else { %>
+    <table class="table table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Sn No.</th>
+          <th>Username</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% users.forEach((user, index) => { %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><%= user.username || user.displayName || 'N/A' %></td>
+            <td><%= user.email %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } %>
+</div>
+
+<style>
+  .container {
+    max-width: 900px;
+  }
+  table {
+    font-size: 1rem;
+  }
+</style>

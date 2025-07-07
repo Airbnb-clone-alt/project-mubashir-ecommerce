@@ -1,0 +1,78 @@
+<% layout('layout') %>
+
+<style>
+    .product:hover {
+        opacity: 0.5;
+        background-color: whitesmoke;
+    }
+    
+    .curved-border-card {
+        position: relative;
+        border: none;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        border-radius: 12px; /* Increased border radius for more curve */
+        overflow: hidden;
+        background: linear-gradient(135deg, #2c3e50, #34495e); /* Border color */
+        padding: 3px; /* Border thickness */
+    }
+    
+    .card-inner {
+        background-color: white;
+        height: 100%;
+        width: 100%;
+        padding: 5px;
+        border-radius: 10px; /* Slightly less than outer radius */
+    }
+    
+    /* Heart button styling */
+    .wishlist-btn {
+        background: rgba(255,255,255,0.8);
+        transition: all 0.3s ease;
+    }
+    
+    .wishlist-btn:hover {
+        background: #ff6b6b;
+        color: white;
+    }
+</style>
+
+<div class="container mt-4">
+  <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+    <% products.forEach(product => { %>
+      <div class="col">
+        <div class="curved-border-card h-100">
+          <div class="card-inner d-flex flex-column">
+            <a href="/products/<%= product._id %>" class="text-decoration-none text-dark product">
+              <div class="position-relative">
+                <img src="<%= product.image %>" class="card-img-top" alt="<%= product.name %>" 
+                     style="height: 140px; object-fit: contain; padding: 5px;">
+                <div class="position-absolute top-0 start-0 m-1">
+                  <form action="/wishlist/add/<%= product._id %>" method="POST">
+                    <button type="submit" class="btn btn-sm wishlist-btn border rounded-circle">❤</button>
+                  </form>
+                </div>
+              </div>
+              <div class="card-body p-2">
+                <h6 class="card-title text-truncate mb-1"><%= product.name %></h6>
+                <p class="card-text small text-muted mb-2">
+                  <b><%= product.title %></b>
+                </p>
+                <p class="card-text text-success fw-bold mb-1">₹ <%= product.price %></p>
+              </div>
+            </a>
+
+            <div class="mt-auto">
+              <div class="p-2 border-top bg-light rounded-bottom">
+                <% if (currentUser) { %>
+                  <!-- Add your cart/order buttons here if needed -->
+                <% } else { %>
+                  <p class="text-muted small mb-1">Please <a href="/login">Login</a> to continue</p>
+                <% } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</div>

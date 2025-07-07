@@ -1,0 +1,202 @@
+<body style="min-height: 100vh; display: flex; flex-direction: column;">
+  <!-- Your existing navbar here -->
+  
+  <main style="flex: 1;">
+    <!-- Page content here -->
+  </main>
+
+  <footer class="compact-footer">
+    <div class="footer-content">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <h4 class="footer-heading">ELEGANT</h4>
+          <p class="footer-text">Premium eCommerce experience</p>
+           <p class="footer-text">MADE BY CODERMUBASHIR</p>
+          <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-links-container">
+          <div class="footer-links-group">
+            <h5 class="footer-subheading">Quick Links</h5>
+            <ul class="footer-links">
+              <li><a href="#" class="footer-link">About</a></li>
+              <li><a href="#" class="footer-link">Contact</a></li>
+              <li><a href="#" class="footer-link">FAQs</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-links-group">
+            <h5 class="footer-subheading">Help</h5>
+            <ul class="footer-links">
+              <li><a href="#" class="footer-link">Shipping</a></li>
+              <li><a href="#" class="footer-link">Returns</a></li>
+              <li><a href="#" class="footer-link">Privacy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    /* Font Awesome for icons */
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+    
+    .compact-footer {
+      background: linear-gradient(135deg, #2c3e50, #34495e);
+      color: #ecf0f1;
+      padding: 1.5rem 0 0.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+    }
+    
+    .footer-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    
+    .footer-main {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-brand {
+      flex: 1;
+      min-width: 200px;
+    }
+    
+    .footer-heading {
+      color: #3498db;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    
+    .footer-text {
+      color: #bdc3c7;
+      margin-bottom: 0.8rem;
+      line-height: 1.4;
+    }
+    
+    .footer-links-container {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .footer-links-group {
+      min-width: 120px;
+    }
+    
+    .footer-subheading {
+      color: #bdc3c7;
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 0.3rem;
+    }
+    
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.3rem;
+    }
+    
+    .footer-link {
+      color: #bdc3c7;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      font-size: 0.85rem;
+    }
+    
+    .footer-link:hover {
+      color: #3498db;
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 0.8rem;
+    }
+    
+    .social-icon {
+      color: #bdc3c7;
+      background: rgba(255,255,255,0.1);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      transition: all 0.2s ease;
+    }
+    
+    .social-icon:hover {
+      background: #3498db;
+      color: #fff;
+    }
+    
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.8rem;
+    }
+    
+    .copyright {
+      color: #bdc3c7;
+    }
+    
+    .footer-brand-link {
+      color: #3498db;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    
+    .payment-methods {
+      display: flex;
+      gap: 0.8rem;
+    }
+    
+    .payment-icon {
+      color: #bdc3c7;
+      font-size: 1.2rem;
+      transition: color 0.2s ease;
+    }
+    
+    .payment-icon:hover {
+      color: #3498db;
+    }
+    
+    @media (max-width: 600px) {
+      .footer-main {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        gap: 0.8rem;
+        text-align: center;
+      }
+    }
+  </style>
+</body>

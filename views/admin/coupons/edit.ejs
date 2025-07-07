@@ -1,0 +1,45 @@
+<% layout('layout') %>
+
+<div class="container mt-4">
+  <h1>Edit Coupon: <%= coupon.code %></h1>
+  <form action="/admin/coupons/<%= coupon._id %>" method="POST" class="row g-3">
+    <div class="col-md-6">
+      <label class="form-label">Code</label>
+      <input name="code" class="form-control" value="<%= coupon.code %>" required>
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Discount Type</label>
+      <select name="discountType" class="form-select" required>
+        <option value="percentage" <%= coupon.discountType === 'percentage' ? 'selected' : '' %>>Percentage</option>
+        <option value="flat" <%= coupon.discountType === 'flat' ? 'selected' : '' %>>Flat</option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Discount Value</label>
+      <input name="discountValue" type="number" class="form-control" value="<%= coupon.discountValue %>" required>
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Min Order Amount</label>
+      <input name="minOrderAmount" type="number" class="form-control" value="<%= coupon.minOrderAmount %>">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Max Discount (for % type)</label>
+      <input name="maxDiscount" type="number" class="form-control" value="<%= coupon.maxDiscount %>">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Usage Limit</label>
+      <input name="usageLimit" type="number" class="form-control" value="<%= coupon.usageLimit %>" required>
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Valid From</label>
+      <input name="validFrom" type="date" class="form-control" value="<%= coupon.validFrom.toISOString().split('T')[0] %>" required>
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Valid Till</label>
+      <input name="validTill" type="date" class="form-control" value="<%= coupon.validTill.toISOString().split('T')[0] %>" required>
+    </div>
+    <div class="col-12">
+      <button class="btn btn-success">Update Coupon</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,158 @@
+<nav class="navbar navbar-expand-lg navbar-dark elegant-navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="/">
+      <span class="brand-text">ELEGANCE</span>
+      <span class="brand-dot">.</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/products">
+            <i class="fas fa-box-open me-1"></i>Products
+          </a>
+        </li>
+        <% if (currentUser) { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/wishlist">
+              <i class="fas fa-heart me-1"></i>Wishlist
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/cart">
+              <i class="fas fa-shopping-cart me-1"></i>Cart
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/orders">
+              <i class="fas fa-clipboard-list me-1"></i>Orders
+            </a>
+          </li>
+        <% } %>
+      </ul>
+
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <% if (currentUser) { %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+              <i class="fas fa-user-circle me-1"></i>Account
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <% if (currentUser.isAdmin) { %>
+                <li><a class="dropdown-item" href="/admin/dashboard">Dashboard</a></li>
+                <li><a class="dropdown-item" href="/admin/users">All User List</a></li>
+                <li><hr class="dropdown-divider"></li>
+              <% } %>
+              <li><a class="dropdown-item" href="/products/new">Add Product</a></li>
+              <li><a class="dropdown-item" href="/auth/profile">Profile</a></li>
+              <li><a class="dropdown-item" href="/logout">Logout</a></li>
+            </ul>
+          </li>
+        <% } else { %>
+          <li class="nav-item">
+            <a class="nav-link btn-login" href="/login">
+              <i class="fas fa-sign-in-alt me-1"></i>Login
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn-register" href="/register">
+              <i class="fas fa-user-plus me-1"></i>Register
+            </a>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<style>
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+  .elegant-navbar {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .elegant-navbar .navbar-brand {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+  }
+
+  .brand-text {
+    color: #ecf0f1;
+    font-weight: 300;
+  }
+
+  .brand-dot {
+    color: #3498db;
+    font-weight: 700;
+  }
+
+  .elegant-navbar .nav-link {
+    color: #bdc3c7 !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    margin: 0 0.2rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  .elegant-navbar .nav-link:hover {
+    color: #ecf0f1 !important;
+    background: rgba(255,255,255,0.1);
+  }
+
+  .elegant-navbar .nav-link i {
+    font-size: 0.9rem;
+  }
+
+  .btn-login {
+    background: rgba(52, 152, 219, 0.2);
+    margin-right: 0.5rem !important;
+  }
+
+  .btn-login:hover {
+    background: rgba(52, 152, 219, 0.4) !important;
+  }
+
+  .btn-register {
+    background: rgba(46, 204, 113, 0.2);
+  }
+
+  .btn-register:hover {
+    background: rgba(46, 204, 113, 0.4) !important;
+  }
+
+  .elegant-navbar .navbar-toggler {
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .elegant-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28236, 240, 241, 0.8%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
+
+  .dropdown-menu {
+    background-color: #2c3e50;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .dropdown-item {
+    color: #bdc3c7;
+  }
+
+  .dropdown-item:hover {
+    background-color: #34495e;
+    color: #ecf0f1;
+  }
+
+  .dropdown-divider {
+    border-color: rgba(255,255,255,0.1);
+  }
+</style>

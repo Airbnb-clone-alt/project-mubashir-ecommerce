@@ -1,0 +1,173 @@
+<% layout('layout') %>
+<div class="profile-container">
+  <div class="profile-card">
+    <div class="profile-header">
+      <h2 class="profile-title"><i class="fas fa-user-circle me-2"></i>Your Profile</h2>
+      <div class="profile-divider"></div>
+    </div>
+    
+    <div class="profile-details">
+      <div class="detail-item">
+        <div class="detail-icon">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="detail-content">
+          <div class="detail-label">Username</div>
+          <div class="detail-value"><%= user.username || user.displayName || 'N/A' %></div>
+        </div>
+      </div>
+      
+      <div class="detail-item">
+        <div class="detail-icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div class="detail-content">
+          <div class="detail-label">Email</div>
+          <div class="detail-value"><%= user.email %></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="profile-actions">
+      <a href="/auth/profile/change-password" class="action-btn change-password-btn">
+        <i class="fas fa-key me-2"></i>Change Password
+      </a>
+      <a href="/auth/profile/forgot-password" class="action-btn forgot-password-btn">
+        <i class="fas fa-unlock-alt me-2"></i>Forgot Password
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+  
+  .profile-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  .profile-card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .profile-header {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    padding: 1.5rem;
+    color: white;
+  }
+  
+  .profile-title {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-divider {
+    height: 3px;
+    background: rgba(255,255,255,0.2);
+    margin-top: 1rem;
+    width: 60px;
+  }
+  
+  .profile-details {
+    padding: 1.5rem;
+  }
+  
+  .detail-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .detail-item:last-child {
+    border-bottom: none;
+  }
+  
+  .detail-icon {
+    width: 40px;
+    height: 40px;
+    background: #f5f5f5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    color: #2c3e50;
+    font-size: 1rem;
+  }
+  
+  .detail-label {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+  }
+  
+  .detail-value {
+    color: #2c3e50;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  
+  .profile-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: #f9f9f9;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  .action-btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+  
+  .change-password-btn {
+    background: #3498db;
+    color: white;
+    border: 1px solid #2980b9;
+  }
+  
+  .change-password-btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(41, 128, 185, 0.2);
+  }
+  
+  .forgot-password-btn {
+    background: #f39c12;
+    color: white;
+    border: 1px solid #e67e22;
+  }
+  
+  .forgot-password-btn:hover {
+    background: #e67e22;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(230, 126, 34, 0.2);
+  }
+  
+  @media (max-width: 576px) {
+    .profile-actions {
+      flex-direction: column;
+    }
+    
+    .action-btn {
+      justify-content: center;
+    }
+  }
+</style>

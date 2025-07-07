@@ -1,0 +1,61 @@
+<% layout('layout') %>
+
+<div class="container mt-4">
+  <h1>Checkout</h1>
+  <p><strong>Product:</strong> <%= product.title %></p>
+  <p><strong>Price:</strong> ₹ <%= product.price %></p>
+
+  <p id="discountInfo" class="text-success"></p>
+  <p id="finalAmountInfo" class="fw-bold"></p>
+
+  <form id="couponForm" class="mt-3">
+    <input type="hidden" id="cartTotal" value="<%= product.price %>">
+    <input type="text" id="couponCodeInput" class="form-control mb-2" placeholder="Enter coupon code">
+    <button type="submit" class="btn btn-primary">Apply Coupon</button>
+  </form>
+  <div id="couponMessage" class="mt-2"></div>
+
+  <form action="/orders/confirm" method="POST" class="mt-3" id="confirmForm">
+    <input type="hidden" name="productId" value="<%= product._id %>">
+    <input type="hidden" name="couponCode" id="appliedCode" value="">
+    <input type="hidden" name="finalAmount" id="finalAmountField" value="<%= product.price %>">
+    <button type="submit" class="btn btn-success">Confirm Order</button>
+  </form>
+</div>
+
+<script>
+document.getElementById('couponForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const code = document.getElementById('couponCodeInput').value.trim();
+  const cartTotal = Number(document.getElementById('cartTotal').value);
+
+  const res = await fetch('/orders/apply-coupon', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ code, cartTotal })
+  });
+
+  const data = await res.json();
+  const msg = document.getElementById('couponMessage');
+  const discountInfo = document.getElementById('discountInfo');
+  const finalAmountInfo = document.getElementById('finalAmountInfo');
+
+  if (data.success) {
+    const finalAmount = cartTotal - data.discount;
+
+    msg.innerHTML = `<span class="text-success">✅ ${data.message || 'Coupon applied successfully'}</span>`;
+    discountInfo.innerHTML = `Discount Applied: ₹${data.discount}`;
+    finalAmountInfo.innerHTML = `Final Amount: ₹${finalAmount}`;
+
+    document.getElementById('appliedCode').value = data.code; 
+    document.getElementById('finalAmountField').value = finalAmount;
+  } else {
+    msg.innerHTML = `<span class="text-danger">❌ ${data.message}</span>`;
+    discountInfo.innerHTML = '';
+    finalAmountInfo.innerHTML = '';
+
+    document.getElementById('appliedCode').value = '';
+    document.getElementById('finalAmountField').value = cartTotal;
+  }
+});
+</script>

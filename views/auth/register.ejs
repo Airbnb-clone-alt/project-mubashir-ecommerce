@@ -1,0 +1,192 @@
+<% layout('layout') %>
+
+<style>
+  :root {
+    --primary: #4a90e2;
+    --primary-light: #6ba8ee;
+    --dark: #121212;
+    --darker: #0a0a0d;
+    --gray: #2d2d2d;
+    --light: #f8f9fa;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--darker);
+    color: var(--light);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: var(--dark);
+  }
+
+  .signup-container {
+    width: 100%;
+    max-width: 450px;
+    background: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 48px 40px;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .signup-container h1 {
+    font-weight: 600;
+    font-size: 28px;
+    text-align: center;
+    color: var(--light);
+    margin-bottom: 30px;
+    position: relative;
+  }
+
+  .signup-container h1::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 3px;
+    margin: 10px auto 0;
+    opacity: 0.7;
+  }
+
+  .form-control {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(45, 45, 45, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    font-size: 15px;
+    margin-bottom: 20px;
+    color: white !important;
+    transition: all 0.3s ease;
+  }
+
+  .form-control::placeholder {
+    color: #aaa;
+  }
+
+  .form-control:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+    background: rgba(45, 45, 45, 0.8);
+  }
+
+  .signup-btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--primary);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+  }
+
+  .signup-btn:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.3);
+  }
+
+  .signup-btn:active {
+    transform: translateY(0);
+  }
+
+  .google-login-btn {
+    width: 100%;
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+    text-decoration: none;
+  }
+
+  .google-login-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .google-icon {
+    border-radius: 50%;
+    padding: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .google-icon i {
+    font-size: 1.3rem;
+  }
+
+  .signup-footer {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 14px;
+    color: #aaa;
+  }
+
+  .signup-footer a {
+    color: var(--primary-light);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .signup-footer a:hover {
+    color: var(--primary);
+    text-decoration: underline;
+  }
+</style>
+
+<main>
+  <div class="signup-container">
+    <h1>Create Account</h1>
+    <form action="/register" method="POST">
+      <input name="username" placeholder="Username" class="form-control" required>
+      <input name="email" type="email" placeholder="Email" class="form-control" required>
+      <input type="password" name="password" placeholder="Password" class="form-control" required>
+      <button type="submit" class="signup-btn">Sign Up</button>
+    </form>
+
+    <a href="/auth/google" class="google-login-btn">
+      <span class="google-icon">
+        <i class="fab fa-google"></i>
+      </span>
+      Continue with Google
+    </a>
+
+    <div class="signup-footer">
+      Already have an account? <a href="/login">Login</a>
+    </div>
+  </div>
+</main>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">

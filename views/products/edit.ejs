@@ -1,0 +1,96 @@
+<% layout('layout') %>
+
+<style>
+  .edit-product-container {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+  }
+  .edit-product-header {
+    color: #495057;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+  }
+  .edit-product-form {
+    background-color: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .form-label {
+    color: #495057;
+    font-weight: 500;
+  }
+  .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+    background-color: #f8f9fa;
+  }
+  .form-control:focus {
+    border-color: #6c757d;
+    box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.15);
+    background-color: #ffffff;
+  }
+  .btn-update {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  .btn-update:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+    transform: translateY(-1px);
+  }
+</style>
+
+<div class="container edit-product-container mt-4">
+  <div class="edit-product-header">
+    <h1 class="h3">Edit Product Details</h1>
+    <p class="text-muted mb-0">Update the product information below</p>
+  </div>
+
+  <form action="/products/<%= product._id %>?_method=PUT" method="POST" class="edit-product-form">
+    <div class="mb-4">
+      <label for="title" class="form-label">Product Title</label>
+      <input type="text" name="product[title]" id="title" class="form-control" 
+             value="<%= product.title %>" required>
+    </div>
+
+    <div class="mb-4">
+      <label for="description" class="form-label">Description</label>
+      <textarea name="product[description]" id="description" class="form-control" 
+                rows="4"><%= product.description %></textarea>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <label for="price" class="form-label">Price (₹)</label>
+        <div class="input-group">
+          <span class="input-group-text">₹</span>
+          <input type="number" name="product[price]" id="price" class="form-control" 
+                 value="<%= product.price %>" step="0.01" min="0" required>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <label for="image" class="form-label">Image URL</label>
+        <input type="url" name="product[image]" id="image" class="form-control" 
+               value="<%= product.image %>" required>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-4">
+      <a href="/products" class="btn btn-outline-secondary">Cancel</a>
+      <button type="submit" class="btn btn-update">
+        <i class="fas fa-save me-2"></i>Update Product
+      </button>
+    </div>
+  </form>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">

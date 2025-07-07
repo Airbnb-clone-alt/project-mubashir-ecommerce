@@ -1,0 +1,71 @@
+<% layout('layout') %>
+
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card border-0 shadow-lg">
+        <div class="card-header bg-dark text-white py-3">
+          <h2 class="h4 mb-0">Add New Product</h2>
+        </div>
+        <div class="card-body p-4">
+          <form action="/products" method="POST">
+            
+            <div class="mb-4">
+              <label for="title" class="form-label fw-medium text-secondary">Product Name</label>
+              <input type="text" class="form-control py-2 border-dark" id="title" name="title" required>
+            </div>
+
+            <div class="mb-4">
+              <label for="price" class="form-label fw-medium text-secondary">Price (₹)</label>
+              <input type="number" class="form-control py-2 border-dark" id="price" name="price" required>
+            </div>
+
+            <div class="mb-4">
+              <label for="image" class="form-label fw-medium text-secondary">Image URL</label>
+              <input type="url" class="form-control py-2 border-dark" id="image" name="image" required>
+            </div>
+
+            <div class="mb-4">
+              <label for="description" class="form-label fw-medium text-secondary">Description</label>
+              <textarea class="form-control py-2 border-dark" id="description" name="description" rows="4"></textarea>
+            </div>
+
+            <div class="d-grid mt-4">
+              <button type="submit" class="btn btn-dark btn-lg py-2">
+                <i class="bi bi-plus-circle me-2"></i>Add Product
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  body {
+    background-color: #f8f9fa;
+  }
+  .card {
+    border-radius: 8px;
+  }
+  .border-dark {
+    border: 1px solid #dee2e6;
+  }
+  .form-control:focus {
+    border-color: #212529;
+    box-shadow: 0 0 0 0.25rem rgba(33, 37, 41, 0.15);
+  }
+  .btn-dark {
+    background-color: #212529;
+    border: none;
+    transition: all 0.3s ease;
+  }
+  .btn-dark:hover {
+    background-color: #000;
+    transform: translateY(-1px);
+  }
+  .form-label {
+    letter-spacing: 0.3px;
+  }
+</style>
