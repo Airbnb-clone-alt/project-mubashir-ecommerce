@@ -1,202 +1,267 @@
-<body style="min-height: 100vh; display: flex; flex-direction: column;">
-  <!-- Your existing navbar here -->
-  
-  <main style="flex: 1;">
-    <!-- Page content here -->
-  </main>
-
-  <footer class="compact-footer">
-    <div class="footer-content">
-      <div class="footer-main">
-        <div class="footer-brand">
-          <h4 class="footer-heading">ELEGANT</h4>
-          <p class="footer-text">Premium eCommerce experience</p>
-           <p class="footer-text">MADE BY CODERMUBASHIR</p>
-          <div class="social-icons">
-            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-          </div>
+<footer class="luxury-footer-compact">
+  <div class="footer-container">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <h3 class="footer-logo">ELEGANCE<span class="gold-dot">.</span></h3>
+        <p class="footer-tagline">Premium eCommerce experience</p>
+      </div>
+      
+      <div class="footer-links">
+        <div class="links-column">
+          <h5 class="links-heading">Quick Links</h5>
+          <ul class="luxury-links">
+            <li><a href="#" class="luxury-link">About</a></li>
+            <li><a href="#" class="luxury-link">Contact</a></li>
+            <li><a href="#" class="luxury-link">FAQs</a></li>
+          </ul>
         </div>
         
-        <div class="footer-links-container">
-          <div class="footer-links-group">
-            <h5 class="footer-subheading">Quick Links</h5>
-            <ul class="footer-links">
-              <li><a href="#" class="footer-link">About</a></li>
-              <li><a href="#" class="footer-link">Contact</a></li>
-              <li><a href="#" class="footer-link">FAQs</a></li>
-            </ul>
-          </div>
-          
-          <div class="footer-links-group">
-            <h5 class="footer-subheading">Help</h5>
-            <ul class="footer-links">
-              <li><a href="#" class="footer-link">Shipping</a></li>
-              <li><a href="#" class="footer-link">Returns</a></li>
-              <li><a href="#" class="footer-link">Privacy</a></li>
-            </ul>
-          </div>
+        <div class="links-column">
+          <h5 class="links-heading">Help</h5>
+          <ul class="luxury-links">
+            <li><a href="#" class="luxury-link">Shipping</a></li>
+            <li><a href="#" class="luxury-link">Returns</a></li>
+            <li><a href="#" class="luxury-link">Privacy</a></li>
+          </ul>
         </div>
       </div>
       
-      <div class="footer-bottom">
-
+      <div class="footer-actions">
+        <div class="social-links">
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        </div>
+        <div class="signature">MADE BY CODERMUBASHIR</div>
       </div>
     </div>
-  </footer>
+    
+    <div class="footer-bottom">
+      <div class="copyright">&copy; 2023 ELEGANCE. All rights reserved.</div>
+      <div class="legal-links">
+        <a href="#" class="legal-link">Privacy</a>
+        <span class="divider">|</span>
+        <a href="#" class="legal-link">Terms</a>
+        <span class="divider">|</span>
+        <a href="#" class="legal-link">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
 
-  <style>
-    /* Font Awesome for icons */
-    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
-    
-    .compact-footer {
-      background: linear-gradient(135deg, #2c3e50, #34495e);
-      color: #ecf0f1;
-      padding: 1.5rem 0 0.5rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      font-size: 0.9rem;
-    }
-    
-    .footer-content {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-    
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap');
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+  
+  /* Ensure footer sticks to bottom */
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  main {
+    flex: 1 0 auto;
+  }
+  
+  .luxury-footer-compact {
+    background: #0a0a0a;
+    color: #e0e0e0;
+    padding: 30px 0 20px;
+    font-family: 'Montserrat', sans-serif;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    flex-shrink: 0;
+    width: 100%;
+  }
+  
+  .footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .footer-main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 25px;
+  }
+  
+  .footer-brand {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+  }
+  
+  .gold-dot {
+    color: #d4af37;
+  }
+  
+  .footer-tagline {
+    color: #b0b0b0;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+  }
+  
+  .footer-links {
+    display: flex;
+    gap: 30px;
+    flex: 2;
+  }
+  
+  .links-column {
+    min-width: 120px;
+  }
+  
+  .links-heading {
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 5px;
+  }
+  
+  .links-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 20px;
+    height: 1px;
+    background: #d4af37;
+  }
+  
+  .luxury-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .luxury-links li {
+    margin-bottom: 8px;
+  }
+  
+  .luxury-link {
+    color: #b0b0b0;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: all 0.2s ease;
+  }
+  
+  .luxury-link:hover {
+    color: #d4af37;
+  }
+  
+  .footer-actions {
+    flex: 1;
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+  }
+  
+  .social-icon {
+    color: #d4af37;
+    background: transparent;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+  }
+  
+  .social-icon:hover {
+    background: #d4af37;
+    color: #0a0a0a;
+  }
+  
+  .signature {
+    color: #d4af37;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .copyright {
+    color: #6a6a6a;
+    font-size: 0.7rem;
+  }
+  
+  .legal-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .legal-link {
+    color: #6a6a6a;
+    text-decoration: none;
+    font-size: 0.7rem;
+    transition: all 0.2s ease;
+  }
+  
+  .legal-link:hover {
+    color: #d4af37;
+  }
+  
+  .divider {
+    color: rgba(212, 175, 55, 0.3);
+    font-size: 0.6rem;
+  }
+  
+  @media (max-width: 768px) {
     .footer-main {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      margin-bottom: 1.5rem;
-    }
-    
-    .footer-brand {
-      flex: 1;
-      min-width: 200px;
-    }
-    
-    .footer-heading {
-      color: #3498db;
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-    
-    .footer-text {
-      color: #bdc3c7;
-      margin-bottom: 0.8rem;
-      line-height: 1.4;
-    }
-    
-    .footer-links-container {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-    
-    .footer-links-group {
-      min-width: 120px;
-    }
-    
-    .footer-subheading {
-      color: #bdc3c7;
-      font-size: 0.95rem;
-      margin-bottom: 0.5rem;
-      font-weight: 500;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      padding-bottom: 0.3rem;
+      flex-direction: column;
+      gap: 25px;
     }
     
     .footer-links {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    
-    .footer-links li {
-      margin-bottom: 0.3rem;
-    }
-    
-    .footer-link {
-      color: #bdc3c7;
-      text-decoration: none;
-      transition: color 0.2s ease;
-      font-size: 0.85rem;
-    }
-    
-    .footer-link:hover {
-      color: #3498db;
-    }
-    
-    .social-icons {
-      display: flex;
-      gap: 0.8rem;
-    }
-    
-    .social-icon {
-      color: #bdc3c7;
-      background: rgba(255,255,255,0.1);
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      transition: all 0.2s ease;
-    }
-    
-    .social-icon:hover {
-      background: #3498db;
-      color: #fff;
+      gap: 20px;
     }
     
     .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 1rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      font-size: 0.8rem;
+      flex-direction: column;
+      align-items: flex-start;
     }
     
-    .copyright {
-      color: #bdc3c7;
+    .legal-links {
+      margin-top: 5px;
     }
-    
-    .footer-brand-link {
-      color: #3498db;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    
-    .payment-methods {
-      display: flex;
-      gap: 0.8rem;
-    }
-    
-    .payment-icon {
-      color: #bdc3c7;
-      font-size: 1.2rem;
-      transition: color 0.2s ease;
-    }
-    
-    .payment-icon:hover {
-      color: #3498db;
-    }
-    
-    @media (max-width: 600px) {
-      .footer-main {
-        flex-direction: column;
-        gap: 1.5rem;
-      }
-      
-      .footer-bottom {
-        flex-direction: column;
-        gap: 0.8rem;
-        text-align: center;
-      }
-    }
-  </style>
-</body>
+  }
+</style>
