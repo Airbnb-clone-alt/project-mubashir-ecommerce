@@ -1,8 +1,9 @@
-<nav class="navbar navbar-expand-lg navbar-dark elegant-navbar">
-  <div class="container-fluid">
-    <a class="navbar-brand fw-bold" href="/">
-      <span class="brand-text">ELEGANCE</span>
+<nav class="navbar navbar-expand-lg navbar-dark luxury-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <span class="brand-main">ELEGANCE</span>
       <span class="brand-dot">.</span>
+      <span class="brand-sub">LUXURY</span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
@@ -12,23 +13,24 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link" href="/products">
-            <i class="fas fa-box-open me-1"></i>Products
+            <i class="fas fa-gem me-2"></i>COLLECTIONS
           </a>
         </li>
         <% if (currentUser) { %>
           <li class="nav-item">
             <a class="nav-link" href="/wishlist">
-              <i class="fas fa-heart me-1"></i>Wishlist
+              <i class="fas fa-heart me-2"></i>WISHLIST
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/cart">
-              <i class="fas fa-shopping-cart me-1"></i>Cart
+              <i class="fas fa-shopping-bag me-2"></i>CART
+              <span class="cart-badge"></span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/orders">
-              <i class="fas fa-clipboard-list me-1"></i>Orders
+              <i class="fas fa-receipt me-2"></i>ORDERS
             </a>
           </li>
         <% } %>
@@ -36,30 +38,40 @@
 
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <% if (currentUser) { %>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
-              <i class="fas fa-user-circle me-1"></i>Account
+          <li class="nav-item dropdown luxury-dropdown">
+            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+              <div class="avatar-circle me-2">
+                <% if (currentUser.avatar) { %>
+                  <img src="<%= currentUser.avatar %>" alt="Profile" class="avatar-img">
+                <% } else { %>
+                  <i class="fas fa-user"></i>
+                <% } %>
+              </div>
+              <span class="username"><%= currentUser.name %></span>
+               <i class="fas fa-chevron-down dropdown-icon ms-2"></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
               <% if (currentUser.isAdmin) { %>
-                <li><a class="dropdown-item" href="/admin/dashboard">Dashboard</a></li>
-                <li><a class="dropdown-item" href="/admin/users">All User List</a></li>
+                <li><h6 class="dropdown-header text-uppercase">Admin</h6></li>
+                <li><a class="dropdown-item" href="/admin/dashboard"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a></li>
+                <li><a class="dropdown-item" href="/admin/users"><i class="fas fa-users me-2"></i>User Management</a></li>
                 <li><hr class="dropdown-divider"></li>
               <% } %>
-              <li><a class="dropdown-item" href="/products/new">Add Product</a></li>
-              <li><a class="dropdown-item" href="/auth/profile">Profile</a></li>
-              <li><a class="dropdown-item" href="/logout">Logout</a></li>
+              <li><h6 class="dropdown-header text-uppercase">Account</h6></li>
+              <li><a class="dropdown-item" href="/products/new"><i class="fas fa-plus-circle me-2"></i>Add Product</a></li>
+              <li><a class="dropdown-item" href="/auth/profile"><i class="fas fa-user-cog me-2"></i>Profile Settings</a></li>
+              <li><a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
             </ul>
           </li>
         <% } else { %>
           <li class="nav-item">
             <a class="nav-link btn-login" href="/login">
-              <i class="fas fa-sign-in-alt me-1"></i>Login
+              <i class="fas fa-sign-in-alt me-2"></i>LOGIN
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item ms-lg-2">
             <a class="nav-link btn-register" href="/register">
-              <i class="fas fa-user-plus me-1"></i>Register
+              <i class="fas fa-user-plus me-2"></i>REGISTER
             </a>
           </li>
         <% } %>
@@ -70,89 +82,258 @@
 
 <style>
   @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
 
-  .elegant-navbar {
-    background: linear-gradient(135deg, #2c3e50, #34495e);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    padding: 0.8rem 1rem;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+  .luxury-navbar {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    padding: 0.8rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    z-index: 1000;
   }
 
-  .elegant-navbar .navbar-brand {
+  .luxury-navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  }
+
+  .luxury-navbar .navbar-brand {
     font-size: 1.8rem;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     display: flex;
-    align-items: center;
+    align-items: baseline;
+    font-family: 'Playfair Display', serif;
+    position: relative;
   }
 
-  .brand-text {
-    color: #ecf0f1;
-    font-weight: 300;
+  .dropdown-icon {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.6);
+  transition: transform 0.3s ease;
+}
+
+.luxury-dropdown.show .dropdown-icon {
+  transform: rotate(180deg);
+  color: #d4af37;
+}
+
+@media (max-width: 991.98px) {
+  .dropdown-icon {
+    margin-left: auto;
+  }
+}
+
+
+
+  .brand-main {
+    color: #f8f8f8;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
   }
 
   .brand-dot {
-    color: #3498db;
+    color: #d4af37;
     font-weight: 700;
+    margin: 0 2px;
   }
 
-  .elegant-navbar .nav-link {
-    color: #bdc3c7 !important;
+  .brand-sub {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    margin-left: 5px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    top: -2px;
+  }
+
+  .luxury-navbar .nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
     font-weight: 500;
-    padding: 0.5rem 1rem;
-    margin: 0 0.2rem;
-    border-radius: 4px;
-    transition: all 0.3s ease;
+    padding: 0.7rem 1.2rem !important;
+    margin: 0 0.3rem;
+    border-radius: 0;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    position: relative;
   }
 
-  .elegant-navbar .nav-link:hover {
-    color: #ecf0f1 !important;
-    background: rgba(255,255,255,0.1);
+  .luxury-navbar .nav-link:hover {
+    color: #ffffff !important;
+    background: transparent !important;
   }
 
-  .elegant-navbar .nav-link i {
-    font-size: 0.9rem;
+  .luxury-navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background: #d4af37;
+    transition: all 0.4s ease;
+    transform: translateX(-50%);
+  }
+
+  .luxury-navbar .nav-link:hover::after {
+    width: 70%;
+  }
+
+  .luxury-navbar .nav-link i {
+    font-size: 0.8rem;
+    color: #d4af37;
+  }
+
+  .btn-login, .btn-register {
+    border-radius: 0;
+    padding: 0.7rem 1.5rem !important;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid transparent;
   }
 
   .btn-login {
-    background: rgba(52, 152, 219, 0.2);
-    margin-right: 0.5rem !important;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.9) !important;
+    border-color: rgba(52, 152, 219, 0.4);
   }
 
   .btn-login:hover {
-    background: rgba(52, 152, 219, 0.4) !important;
+    background: rgba(52, 152, 219, 0.1) !important;
+    border-color: rgba(52, 152, 219, 0.7);
   }
 
   .btn-register {
-    background: rgba(46, 204, 113, 0.2);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.9) !important;
+    border-color: rgba(46, 204, 113, 0.4);
   }
 
   .btn-register:hover {
-    background: rgba(46, 204, 113, 0.4) !important;
+    background: rgba(46, 204, 113, 0.1) !important;
+    border-color: rgba(46, 204, 113, 0.7);
   }
 
-  .elegant-navbar .navbar-toggler {
-    border: 1px solid rgba(255,255,255,0.2);
+  .luxury-navbar .navbar-toggler {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.5rem;
   }
 
-  .elegant-navbar .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28236, 240, 241, 0.8%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  .luxury-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28212, 175, 55, 0.8%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
   }
 
   .dropdown-menu {
-    background-color: #2c3e50;
-    border: 1px solid rgba(255,255,255,0.1);
+    background-color: #1a1a2e;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 0;
+    padding: 0.5rem 0;
+    min-width: 220px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   }
 
   .dropdown-item {
-    color: #bdc3c7;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0.6rem 1.5rem;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    position: relative;
   }
 
   .dropdown-item:hover {
-    background-color: #34495e;
-    color: #ecf0f1;
+    background-color: rgba(212, 175, 55, 0.1);
+    color: #ffffff;
+    padding-left: 1.8rem;
+  }
+
+  .dropdown-item i {
+    width: 20px;
+    text-align: center;
+    margin-right: 10px;
+    color: #d4af37;
   }
 
   .dropdown-divider {
-    border-color: rgba(255,255,255,0.1);
+    border-color: rgba(255, 255, 255, 0.05);
+    margin: 0.3rem 0;
+  }
+
+  .dropdown-header {
+    color: #d4af37;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    padding: 0.5rem 1.5rem;
+  }
+
+  .avatar-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d4af37;
+    font-size: 0.9rem;
+    overflow: hidden;
+  }
+
+  .avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .username {
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+  }
+
+  .cart-badge {
+    background: #d4af37;
+    color: #1a1a2e;
+    font-size: 0.6rem;
+    font-weight: bold;
+    padding: 0.15rem 0.35rem;
+    border-radius: 50%;
+    position: relative;
+    top: -1px;
+    margin-left: 3px;
+  }
+
+  @media (max-width: 991.98px) {
+    .luxury-navbar {
+      padding: 0.8rem 1.5rem;
+    }
+    
+    .luxury-navbar .nav-link {
+      padding: 0.75rem 1rem !important;
+      margin: 0.1rem 0;
+    }
+    
+    .dropdown-menu {
+      background-color: transparent;
+      border: none;
+      box-shadow: none;
+      padding-left: 1.5rem;
+    }
+    
+    .dropdown-item {
+      padding: 0.5rem 0;
+    }
   }
 </style>
