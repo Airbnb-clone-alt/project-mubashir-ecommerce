@@ -1,75 +1,31 @@
 <% layout('layout') %>
 
 <style>
-    /* Modern Grey Theme Variables */
+    /* ========== DARK THEME VARIABLES ========== */
     :root {
-        --primary: #2c3e50;
-        --primary-light: #34495e;
-        --accent: #3498db;
-        --dark: #1a1a1a;
-        --light: #f8f9fa;
-        --grey-light: #ecf0f1;
-        --grey-medium: #bdc3c7;
-        --grey-dark: #7f8c8d;
+        /* Color Palette */
+        --primary: #000000;
+        --secondary: #1a1a1a;
+        --accent: #ffffff;
+        --text-primary: #ffffff;
+        --text-secondary: #b3b3b3;
+        --highlight: #2a2a2a;
+        
+        /* Neutrals */
+        --dark: #000000;
+        --light: #ffffff;
+        --grey-light: #333333;
+        
+        /* Spacing */
+        --section-padding: 5rem 0;
     }
-    
-    /* Hero Section */
-    .hero-section {
-        background: linear-gradient(135deg, var(--grey-light) 0%, #dfe6e9 100%);
-        padding: 6rem 0 5rem;
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .hero-content {
-        max-width: 800px;
-        margin: 0 auto;
-        text-align: center;
-        padding: 0 2rem;
-        position: relative;
-        z-index: 2;
-    }
-    
-    .hero-title {
-        font-size: 3.2rem;
-        font-weight: 700;
-        color: var(--primary);
-        margin-bottom: 1.5rem;
-        line-height: 1.2;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.2rem;
-        color: var(--grey-dark);
-        margin-bottom: 2.5rem;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .hero-btn {
-        display: inline-block;
-        padding: 0.9rem 2.2rem;
-        background: var(--primary);
-        color: white;
-        border-radius: 6px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        border: 2px solid var(--primary);
-        box-shadow: 0 4px 12px rgba(44, 62, 80, 0.15);
-    }
-    
-    .hero-btn:hover {
-        background: var(--primary-light);
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(44, 62, 80, 0.2);
-    }
-    
-    /* Benefits Section */
-    .benefits-section {
-        padding: 5rem 0;
-        background: white;
+
+    /* ========== BASE STYLES ========== */
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--text-primary);
+        overflow-x: hidden;
+        background-color: grey;
     }
     
     .section-title {
@@ -78,220 +34,307 @@
     }
     
     .section-title h2 {
-        font-size: 2.2rem;
-        color: var(--primary);
+        font-size: 2.5rem;
+        font-weight: 800;
         position: relative;
         display: inline-block;
         padding-bottom: 1rem;
+        color: var(--accent);
     }
     
-    .section-title h2:after {
+    .section-title h2::after {
         content: '';
         position: absolute;
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
-        width: 80px;
-        height: 4px;
+        width: 100px;
+        height: 3px;
         background: var(--accent);
-        border-radius: 2px;
+        border-radius: 5px;
+    }
+    
+    .btn {
+        display: inline-block;
+        padding: 1rem 2.5rem;
+        background: var(--accent);
+        color: var(--primary);
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: all 0.3s ease;
+        border: none;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+    }
+    
+    .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        background: var(--text-secondary);
+        color: var(--accent);
+    }
+    
+    .btn-secondary {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+        background: transparent;
+        color: var(--accent);
+        border: 2px solid var(--accent);
+    }
+    
+    .btn-secondary:hover {
+        background: var(--accent);
+        color: var(--primary);
+    }
+
+    /* ========== HERO SECTION ========== */
+    .hero-section {
+        background: var(--secondary);
+        padding: 8rem 0 6rem;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+        color: var(--accent);
+        border-bottom: 1px solid var(--grey-light);
+    }
+    
+    .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .hero-title {
+        font-size: 4rem;
+        font-weight: 900;
+        margin-bottom: 1.5rem;
+        line-height: 1.1;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 3rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: 300;
+        color: var(--text-secondary);
+    }
+
+    /* ========== BENEFITS SECTION ========== */
+    .benefits-section {
+        padding: var(--section-padding);
+        background: var(--primary);
     }
     
     .benefits-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2rem;
+        gap: 2.5rem;
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 2rem;
     }
     
     .benefit-card {
-        background: var(--light);
-        border-radius: 8px;
-        padding: 2rem;
+        background: var(--secondary);
+        border-radius: 15px;
+        padding: 2.5rem 2rem;
         text-align: center;
-        transition: all 0.3s ease;
-        border: 1px solid rgba(0,0,0,0.05);
+        transition: all 0.4s ease;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        border: 1px solid var(--grey-light);
+        position: relative;
+        overflow: hidden;
     }
     
     .benefit-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        background: var(--highlight);
     }
     
     .benefit-icon {
-        font-size: 2.5rem;
-        color: var(--accent);
+        font-size: 3.5rem;
         margin-bottom: 1.5rem;
+        color: var(--accent);
     }
     
     .benefit-title {
-        font-size: 1.3rem;
-        color: var(--primary);
+        font-size: 1.5rem;
+        font-weight: 700;
         margin-bottom: 1rem;
+        color: var(--accent);
     }
     
-    /* Product Showcase */
+    .benefit-card p {
+        color: var(--text-secondary);
+        line-height: 1.6;
+    }
+
+    /* ========== PRODUCT SHOWCASE ========== */
     .product-showcase {
-        padding: 5rem 0;
-        background: var(--grey-light);
+        padding: var(--section-padding);
+        background: var(--primary);
+        border-top: 1px solid var(--grey-light);
     }
     
     .product-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2.5rem;
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 2rem;
     }
     
     .product-card {
-        background: white;
-        border-radius: 8px;
+        background: var(--secondary);
+        border-radius: 15px;
         overflow: hidden;
-        transition: all 0.3s ease;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        transition: all 0.4s ease;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        position: relative;
+        border: 1px solid var(--grey-light);
     }
     
     .product-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        background: var(--highlight);
     }
     
     .product-img {
-        height: 200px;
-        background: #f5f5f5;
+        height: 220px;
+        background: var(--dark);
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
+        overflow: hidden;
+        border-bottom: 1px solid var(--grey-light);
     }
     
     .product-img img {
-        max-height: 100%;
-        max-width: 100%;
+        max-height: 80%;
+        max-width: 80%;
         object-fit: contain;
+        transition: transform 0.4s ease;
+        filter: brightness(0.9);
+    }
+    
+    .product-card:hover .product-img img {
+        transform: scale(1.05);
+        filter: brightness(1);
     }
     
     .product-info {
-        padding: 1.5rem;
+        padding: 1.8rem;
     }
     
     .product-title {
-        font-size: 1.1rem;
-        color: var(--primary);
-        margin-bottom: 0.5rem;
-        font-weight: 600;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--accent);
+        margin-bottom: 0.8rem;
     }
     
     .product-price {
-        font-weight: 700;
+        font-weight: 800;
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
         color: var(--accent);
-        margin-bottom: 1rem;
     }
-    
-    .product-btn {
-        display: block;
-        text-align: center;
-        padding: 0.6rem;
-        background: var(--primary);
-        color: white;
-        border-radius: 4px;
-        text-decoration: none;
-        font-weight: 500;
-        transition: all 0.3s ease;
-    }
-    
-    .product-btn:hover {
-        background: var(--primary-light);
-    }
-    
-    /* Responsive Adjustments */
+
+    /* ========== RESPONSIVE ADJUSTMENTS ========== */
     @media (max-width: 768px) {
+        :root {
+            --section-padding: 4rem 0;
+        }
+        
         .hero-title {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
         }
         
         .hero-subtitle {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
         
-        .benefits-grid, .product-grid {
+        .benefits-grid, 
+        .product-grid {
             grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
         }
     }
 </style>
 
-<!-- Hero Section -->
+<!-- ========== HERO SECTION ========== -->
 <section class="hero-section">
     <div class="hero-content">
-        <h1 class="hero-title">Premium Shopping Experience</h1>
-        <p class="hero-subtitle">Discover exquisite products at unbeatable prices</p>
-        <a href="/products" class="hero-btn">Explore Products</a>
+        <h1 class="hero-title">Shop Your Favorite Products</h1>
+        <p class="hero-subtitle">Discover premium products in our sleek black collection</p>
+        <a href="/products" class="btn">Explore Products</a>
     </div>
 </section>
 
-<!-- Benefits Section -->
+<!-- ========== BENEFITS SECTION ========== -->
 <section class="benefits-section">
     <div class="section-title">
-        <h2>Our Advantages</h2>
+        <h2>Why Choose Us?</h2>
     </div>
     <div class="benefits-grid">
         <div class="benefit-card">
             <div class="benefit-icon">
-                <i class="fas fa-shipping-fast"></i>
+                <i class="fas fa-bolt"></i>
             </div>
             <h3 class="benefit-title">Fast Delivery</h3>
-            <p>Get your orders delivered quickly with our premium shipping partners</p>
+            <p>Swift shipping that matches the speed of darkness</p>
         </div>
         <div class="benefit-card">
             <div class="benefit-icon">
-                <i class="fas fa-shield-alt"></i>
+                <i class="fas fa-lock"></i>
             </div>
-            <h3 class="benefit-title">Secure Payments</h3>
-            <p>100% secure payment options with industry-leading encryption</p>
+            <h3 class="benefit-title">Secure Shopping</h3>
+            <p>Your transactions are protected with military-grade security</p>
         </div>
         <div class="benefit-card">
             <div class="benefit-icon">
-                <i class="fas fa-headset"></i>
+                <i class="fas fa-gem"></i>
             </div>
-            <h3 class="benefit-title">24/7 Support</h3>
-            <p>Dedicated support team available round the clock</p>
+            <h3 class="benefit-title">Premium Quality</h3>
+            <p>Exquisite products curated with precision and care</p>
         </div>
     </div>
 </section>
 
-<!-- Product Showcase - Only shown if featuredProducts exists -->
+<!-- ========== PRODUCT SHOWCASE ========== -->
 <% if (typeof featuredProducts !== 'undefined' && featuredProducts.length > 0) { %>
-<section class="product-showcase">
-    <div class="section-title">
-        <h2>Featured Products</h2>
-    </div>
-    <div class="product-grid">
-        <% featuredProducts.slice(0, 4).forEach(product => { %>
-        <div class="product-card">
-            <div class="product-img">
-                <img src="<%= product.image %>" alt="<%= product.title %>">
-            </div>
-            <div class="product-info">
-                <h3 class="product-title"><%= product.title %></h3>
-                <div class="product-price">₹<%= product.price %></div>
-                <a href="/products/<%= product._id %>" class="product-btn">View Details</a>
-            </div>
+    <section class="product-showcase">
+        <div class="section-title">
+            <h2>Black Collection</h2>
         </div>
-        <% }) %>
-    </div>
-</section>
-<% } else { %>
-<!-- Alternative content if no featured products -->
-<section class="product-showcase">
-    <div class="section-title">
-        <h2>Our Collection</h2>
-    </div>
-    <div class="text-center py-4">
-        <p>Explore our amazing products collection</p>
-        <a href="/products" class="hero-btn">View All Products</a>
-    </div>
-</section>
+        <div class="product-grid">
+            <% featuredProducts.slice(0, 4).forEach(product => { %>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="<%= product.image %>" alt="<%= product.title %>">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title"><%= product.title %></h3>
+                        <div class="product-price">₹<%= product.price %></div>
+                        <a href="/products/<%= product._id %>" class="btn btn-secondary">View Details</a>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </section>
 <% } %>
