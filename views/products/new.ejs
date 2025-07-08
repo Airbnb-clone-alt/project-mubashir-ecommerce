@@ -3,36 +3,48 @@
 <div class="container my-5">
   <div class="row justify-content-center">
     <div class="col-md-8 col-lg-6">
-      <div class="card border-0 shadow-lg">
-        <div class="card-header bg-dark text-white py-3">
-          <h2 class="h4 mb-0">Add New Product</h2>
+      <div class="card border-0 shadow-lg animate__animated animate__fadeIn">
+        <div class="card-header bg-gradient-dark text-white py-4">
+          <h2 class="h4 mb-0 text-center"><i class="bi bi-box-seam me-2"></i>Add New Product</h2>
         </div>
-        <div class="card-body p-4">
+        <div class="card-body p-5">
           <form action="/products" method="POST">
             
             <div class="mb-4">
-              <label for="title" class="form-label fw-medium text-secondary">Product Name</label>
-              <input type="text" class="form-control py-2 border-dark" id="title" name="title" required>
+              <label for="title" class="form-label fw-medium text-muted">Product Name</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light"><i class="bi bi-tag text-primary"></i></span>
+                <input type="text" class="form-control py-2 border-start-0" id="title" name="title" required placeholder="Enter product name">
+              </div>
             </div>
 
             <div class="mb-4">
-              <label for="price" class="form-label fw-medium text-secondary">Price (₹)</label>
-              <input type="number" class="form-control py-2 border-dark" id="price" name="price" required>
+              <label for="price" class="form-label fw-medium text-muted">Price</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light"><i class="bi bi-currency-rupee text-success"></i></span>
+                <input type="number" class="form-control py-2 border-start-0" id="price" name="price" required placeholder="0.00">
+              </div>
             </div>
 
             <div class="mb-4">
-              <label for="image" class="form-label fw-medium text-secondary">Image URL</label>
-              <input type="url" class="form-control py-2 border-dark" id="image" name="image" required>
+              <label for="image" class="form-label fw-medium text-muted">Image URL</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light"><i class="bi bi-image text-info"></i></span>
+                <input type="url" class="form-control py-2 border-start-0" id="image" name="image" required placeholder="https://example.com/image.jpg">
+              </div>
             </div>
 
             <div class="mb-4">
-              <label for="description" class="form-label fw-medium text-secondary">Description</label>
-              <textarea class="form-control py-2 border-dark" id="description" name="description" rows="4"></textarea>
+              <label for="description" class="form-label fw-medium text-muted">Description</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light h-100"><i class="bi bi-text-paragraph text-warning"></i></span>
+                <textarea class="form-control py-2 border-start-0" id="description" name="description" rows="4" placeholder="Enter detailed product description"></textarea>
+              </div>
             </div>
 
-            <div class="d-grid mt-4">
-              <button type="submit" class="btn btn-dark btn-lg py-2">
-                <i class="bi bi-plus-circle me-2"></i>Add Product
+            <div class="d-grid mt-5">
+              <button type="submit" class="btn btn-gradient-primary btn-lg py-3 fw-bold">
+                <i class="bi bi-plus-circle-fill me-2"></i>Add Product
               </button>
             </div>
           </form>
@@ -44,28 +56,49 @@
 
 <style>
   body {
-    background-color: #f8f9fa;
+    background-color: grey;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   .card {
-    border-radius: 8px;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
   }
-  .border-dark {
-    border: 1px solid #dee2e6;
+  .card:hover {
+    transform: translateY(-5px);
   }
-  .form-control:focus {
-    border-color: #212529;
-    box-shadow: 0 0 0 0.25rem rgba(33, 37, 41, 0.15);
+  .card-header {
+    border-bottom: none;
   }
-  .btn-dark {
-    background-color: #212529;
+  .bg-gradient-dark {
+    background: linear-gradient(135deg, #2c3e50, #1a1a2e);
+  }
+  .btn-gradient-primary {
+    background: linear-gradient(135deg, #3a7bd5, #00d2ff);
     border: none;
+    border-radius: 8px;
     transition: all 0.3s ease;
   }
-  .btn-dark:hover {
-    background-color: #000;
-    transform: translateY(-1px);
+  .btn-gradient-primary:hover {
+    background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
   }
-  .form-label {
-    letter-spacing: 0.3px;
+  .form-control {
+    border-left: 0 !important;
+    border-color: #e2e8f0;
+    transition: border-color 0.3s ease;
+  }
+  .form-control:focus {
+    border-color: #94a3b8 !important;
+    box-shadow: 0 0 0 0.25rem rgba(100, 149, 237, 0.15);
+  }
+  .input-group-text {
+    border-right: 0;
+    background-color: #f8fafc !important;
+    border-color: #e2e8f0;
+  }
+  .animate__animated {
+    animation-duration: 0.5s;
   }
 </style>
