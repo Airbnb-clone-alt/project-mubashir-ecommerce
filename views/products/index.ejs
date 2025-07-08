@@ -1,5 +1,8 @@
 <% layout('layout') %>
 
+<!-- ✅ Make sure Bootstrap 5 is loaded in layout.ejs -->
+<!-- Example: <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
 <style>
   .product:hover {
     opacity: 0.5;
@@ -7,7 +10,6 @@
   }
 
   .curved-border-card {
-    position: relative;
     border: none;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border-radius: 12px;
@@ -19,9 +21,10 @@
   .card-inner {
     background-color: white;
     height: 100%;
-    width: 100%;
     padding: 5px;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
   }
 
   .wishlist-btn {
@@ -34,7 +37,6 @@
     color: white;
   }
 
-  /* Responsive image size for mobile */
   .card-img-top {
     height: 140px;
     object-fit: contain;
@@ -43,17 +45,18 @@
 
   @media (max-width: 576px) {
     .card-img-top {
-      height: 180px;
+      height: 160px;
     }
   }
 </style>
 
 <div class="container mt-4">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+  <!-- ✅ EXACTLY what you need: 2 cards on xs (mobile), 2 on sm, 3 on md, 4 on lg -->
+  <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
     <% products.forEach(product => { %>
       <div class="col">
         <div class="curved-border-card h-100">
-          <div class="card-inner d-flex flex-column">
+          <div class="card-inner">
             <a href="/products/<%= product._id %>" class="text-decoration-none text-dark product">
               <div class="position-relative">
                 <img src="<%= product.image %>" class="card-img-top" alt="<%= product.name %>">
@@ -75,7 +78,7 @@
             <div class="mt-auto">
               <div class="p-2 border-top bg-light rounded-bottom">
                 <% if (currentUser) { %>
-                  <!-- Add cart/order buttons here -->
+                  <!-- Add cart/order buttons here if needed -->
                 <% } else { %>
                   <p class="text-muted small mb-1">Please <a href="/login">Login</a> to continue</p>
                 <% } %>
@@ -87,3 +90,4 @@
     <% }) %>
   </div>
 </div>
+
