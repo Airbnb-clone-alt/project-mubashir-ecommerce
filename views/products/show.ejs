@@ -19,7 +19,16 @@
     <div class="col-md-7">
       <h3 class="fw-bold"><%= product.title %></h3>
       <p class="text-muted"><%= product.description || 'No description available.' %></p>
-      <p class="text-success fs-5 fw-semibold">₹ <%= product.price %></p>
+
+      <!-- ✅ Price Section Updated -->
+      <p class="fs-5 fw-semibold">
+        <span class="text-muted text-decoration-line-through me-2">
+          Rs :<%= product.price + 1020 %>
+        </span>
+        <span class="text-danger fw-bold">
+          ₹<%= product.price %>
+        </span>
+      </p>
 
       <div class="d-flex gap-2 mt-3">
         <% if (currentUser) { %>
