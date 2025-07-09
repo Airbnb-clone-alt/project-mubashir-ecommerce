@@ -2,274 +2,164 @@
 
 <style>
   :root {
-    --rainbow-1: #FF355E; /* Radical Red */
-    --rainbow-2: #FF6037; /* Outrageous Orange */
-    --rainbow-3: #FF9966; /* Atomic Tangerine */
-    --rainbow-4: #FFCC33; /* Sunglow */
-    --rainbow-5: #66FF66; /* Screamin' Green */
-    --rainbow-6: #50BFE6; /* Blizzard Blue */
-    --rainbow-7: #FF6EFF; /* Shocking Pink */
-    --dark: #121212;
-    --darker: #0a0a0d;
-    --light: #f8f9fa;
-    --gray: #2d2d2d;
-  }
-
-  @keyframes rainbow-gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    --primary: #6c63ff;
+    --accent: #82cfff;
+    --light-bg: #f9fbfd;
+    --white: #ffffff;
+    --border: #e0e0e0;
+    --text: #2d2d2d;
+    --hover: #5e5ce6;
+    --placeholder: #a0a0a0;
   }
 
   body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: var(--darker);
-    color: var(--light);
+    background-color: var(--light-bg);
+    color: var(--text);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image:
-      radial-gradient(circle at 20% 30%, rgba(255, 53, 94, 0.1) 0%, transparent 25%),
-      radial-gradient(circle at 80% 70%, rgba(80, 191, 230, 0.1) 0%, transparent 25%);
   }
 
   main {
     flex: 1;
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 20px;
-    background: var(--dark);
-    position: relative;
-    overflow: hidden;
+    align-items: center;
+    padding: 40px 20px;
   }
 
   .signup-container {
     width: 100%;
-    max-width: 450px;
-    background: rgba(18, 18, 18, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    padding: 48px 40px;
+    max-width: 460px;
+    background: var(--white);
+    border: 1px solid var(--border);
     border-radius: 16px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    position: relative;
-    z-index: 2;
+    padding: 36px 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
   }
 
-  .signup-container h1 {
-    font-weight: 600;
-    font-size: 28px;
+  .signup-header {
     text-align: center;
-    margin-bottom: 30px;
-    position: relative;
-    background: linear-gradient(45deg, 
-      var(--rainbow-1), 
-      var(--rainbow-3), 
-      var(--rainbow-5), 
-      var(--rainbow-7));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    background-size: 300% 300%;
-    animation: rainbow-gradient 8s ease infinite;
+    margin-bottom: 28px;
   }
 
-  .signup-container h1::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(45deg, 
-      var(--rainbow-1), 
-      var(--rainbow-3), 
-      var(--rainbow-5), 
-      var(--rainbow-7));
-    border-radius: 3px;
-    margin: 10px auto 0;
-    background-size: 300% 300%;
-    animation: rainbow-gradient 8s ease infinite;
+  .signup-header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--primary);
+  }
+
+  .signup-header p {
+    font-size: 14px;
+    color: #6c757d;
   }
 
   .form-control {
     width: 100%;
-    padding: 14px 16px;
-    background: rgba(45, 45, 45, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background-color: #fff;
     font-size: 15px;
-    margin-bottom: 20px;
-    color: white !important;
-    transition: all 0.3s ease;
+    color: var(--text);
+    transition: 0.3s ease;
   }
 
   .form-control::placeholder {
-    color: #aaa;
+    color: var(--placeholder);
   }
 
   .form-control:focus {
-    border-color: var(--rainbow-5);
     outline: none;
-    box-shadow: 0 0 0 3px rgba(102, 255, 102, 0.2);
-    background: rgba(45, 45, 45, 0.8);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
   }
 
   .signup-btn {
     width: 100%;
-    padding: 14px;
-    background: linear-gradient(45deg, 
-      var(--rainbow-1), 
-      var(--rainbow-3), 
-      var(--rainbow-5), 
-      var(--rainbow-7));
-    border: none;
-    border-radius: 8px;
+    padding: 12px;
+    background: linear-gradient(to right, var(--primary), var(--accent));
     color: white;
-    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
     font-size: 16px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    letter-spacing: 0.5px;
-    background-size: 300% 300%;
-    animation: rainbow-gradient 8s ease infinite;
-    position: relative;
-    overflow: hidden;
+    transition: 0.3s ease;
   }
 
   .signup-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(255, 53, 94, 0.3);
-  }
-
-  .signup-btn:active {
-    transform: translateY(0);
-  }
-
-  .signup-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: 0.5s;
-  }
-
-  .signup-btn:hover::before {
-    left: 100%;
+    background: var(--hover);
   }
 
   .google-login-btn {
     width: 100%;
-    padding: 14px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
+    padding: 12px;
+    background: #eef2ff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
     font-weight: 500;
     font-size: 15px;
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    color: var(--text);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 10px;
     margin-top: 16px;
+    transition: 0.3s ease;
     text-decoration: none;
   }
 
   .google-login-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    color: var(--rainbow-5);
-  }
-
-  .google-icon {
-    border-radius: 50%;
-    padding: 6px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .google-icon i {
-    font-size: 1.3rem;
+    background-color: #e0e7ff;
   }
 
   .signup-footer {
-    margin-top: 24px;
+    margin-top: 28px;
     text-align: center;
     font-size: 14px;
-    color: #aaa;
   }
 
   .signup-footer a {
-    color: var(--rainbow-5);
+    color: var(--primary);
     font-weight: 500;
     text-decoration: none;
-    transition: color 0.2s ease;
   }
 
   .signup-footer a:hover {
-    color: var(--rainbow-3);
-    text-decoration: underline;
+    color: var(--hover);
   }
 
-  .floating-decoration {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(60px);
-    z-index: 1;
-    animation: float 6s ease-in-out infinite;
-    opacity: 0.7;
-  }
+  @media (max-width: 576px) {
+    .signup-container {
+      padding: 28px 20px;
+    }
 
-  .decoration-1 {
-    width: 300px;
-    height: 300px;
-    top: -100px;
-    left: -100px;
-    background: radial-gradient(circle, var(--rainbow-7), transparent 70%);
-    animation-delay: 0s;
-  }
-
-  .decoration-2 {
-    width: 250px;
-    height: 250px;
-    bottom: -80px;
-    right: -80px;
-    background: radial-gradient(circle, var(--rainbow-3), transparent 70%);
-    animation-delay: 1.5s;
+    .signup-header h1 {
+      font-size: 22px;
+    }
   }
 </style>
 
 <main>
-  <div class="floating-decoration decoration-1"></div>
-  <div class="floating-decoration decoration-2"></div>
-  
   <div class="signup-container">
-    <h1>Create Account</h1>
+    <div class="signup-header">
+      <h1>Create Account</h1>
+      <p>Join us and start shopping now</p>
+    </div>
+
     <form action="/register" method="POST">
-      <input name="username" placeholder="Username" class="form-control" required>
-      <input name="email" type="email" placeholder="Email" class="form-control" required>
-      <input type="password" name="password" placeholder="Password" class="form-control" required>
+      <input type="text" name="username" class="form-control" placeholder="Username" required>
+      <input type="email" name="email" class="form-control" placeholder="Email" required>
+      <input type="password" name="password" class="form-control" placeholder="Password" required>
       <button type="submit" class="signup-btn">Sign Up</button>
     </form>
 
     <a href="/auth/google" class="google-login-btn">
-      <span class="google-icon">
-        <i class="fab fa-google"></i>
-      </span>
-      Continue with Google
+      <i class="fab fa-google"></i> Continue with Google
     </a>
 
     <div class="signup-footer">
@@ -280,3 +170,4 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
