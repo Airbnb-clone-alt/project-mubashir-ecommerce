@@ -1,9 +1,9 @@
-<nav class="navbar navbar-expand-lg navbar-dark luxury-navbar">
+<nav class="navbar navbar-expand-lg navbar-dark ecommerce-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <span class="brand-main">ELEGANCE</span>
+      <span class="brand-main">SHOPMATE</span>
       <span class="brand-dot">.</span>
-      <span class="brand-sub">LUXURY</span>
+      <span class="brand-sub">STORE</span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
@@ -13,8 +13,13 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link" href="/products">
-            <i class="fas fa-gem me-2"></i>COLLECTIONS
+            <i class="fas fa-box-open me-2"></i>PRODUCTS
           </a>
+        </li>
+        <li class="nav-item">
+          <!-- <a class="nav-link" href="/categories">
+            <i class="fas fa-list me-2"></i>CATEGORIES
+          </a> -->
         </li>
         <% if (currentUser) { %>
           <li class="nav-item">
@@ -24,8 +29,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/cart">
-              <i class="fas fa-shopping-bag me-2"></i>CART
-              <span class="cart-badge"></span>
+              <i class="fas fa-shopping-cart me-2"></i>CART
             </a>
           </li>
           <li class="nav-item">
@@ -38,7 +42,7 @@
 
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <% if (currentUser) { %>
-          <li class="nav-item dropdown luxury-dropdown">
+          <li class="nav-item dropdown ecommerce-dropdown">
             <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
               <div class="avatar-circle me-2">
                 <% if (currentUser.avatar) { %>
@@ -48,13 +52,13 @@
                 <% } %>
               </div>
               <span class="username"><%= currentUser.name %></span>
-               <i class="fas fa-chevron-down dropdown-icon ms-2"></i>
+              <i class="fas fa-chevron-down dropdown-icon ms-2"></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
               <% if (currentUser.isAdmin) { %>
                 <li><h6 class="dropdown-header text-uppercase">Admin</h6></li>
                 <li><a class="dropdown-item" href="/admin/dashboard"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a></li>
-                <li><a class="dropdown-item" href="/admin/users"><i class="fas fa-users me-2"></i>User Management</a></li>
+                <li><a class="dropdown-item" href="/admin/products"><i class="fas fa-boxes me-2"></i>Products</a></li>
                 <li><hr class="dropdown-divider"></li>
               <% } %>
               <li><h6 class="dropdown-header text-uppercase">Account</h6></li>
@@ -82,200 +86,142 @@
 
 <style>
   @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-  .luxury-navbar {
-    background: linear-gradient(135deg, #1a1a2e, #16213e);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  .ecommerce-navbar {
+    background-color: #ffffff;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     padding: 0.8rem 2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
     position: relative;
     z-index: 1000;
   }
 
-  .luxury-navbar::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  }
-
-  .luxury-navbar .navbar-brand {
+  .ecommerce-navbar .navbar-brand {
     font-size: 1.8rem;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     display: flex;
     align-items: baseline;
-    font-family: 'Playfair Display', serif;
+    font-weight: 700;
     position: relative;
   }
 
-  .dropdown-icon {
-  font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.6);
-  transition: transform 0.3s ease;
-}
-
-.luxury-dropdown.show .dropdown-icon {
-  transform: rotate(180deg);
-  color: #d4af37;
-}
-
-@media (max-width: 991.98px) {
-  .dropdown-icon {
-    margin-left: auto;
-  }
-}
-
-
-
   .brand-main {
-    color: #f8f8f8;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 3px;
+    color: #2c3e50;
+    font-weight: 700;
   }
 
   .brand-dot {
-    color: #d4af37;
+    color: #3498db;
     font-weight: 700;
     margin: 0 2px;
   }
 
   .brand-sub {
-    color: rgba(255, 255, 255, 0.6);
+    color: #7f8c8d;
     font-size: 0.7rem;
-    letter-spacing: 4px;
+    letter-spacing: 1px;
     margin-left: 5px;
-    text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
     position: relative;
     top: -2px;
   }
 
-  .luxury-navbar .nav-link {
-    color: rgba(255, 255, 255, 0.8) !important;
+  .ecommerce-navbar .nav-link {
+    color: #34495e !important;
     font-weight: 500;
     padding: 0.7rem 1.2rem !important;
     margin: 0 0.3rem;
-    border-radius: 0;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-size: 0.75rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-size: 0.8rem;
     position: relative;
   }
 
-  .luxury-navbar .nav-link:hover {
-    color: #ffffff !important;
-    background: transparent !important;
+  .ecommerce-navbar .nav-link:hover {
+    color: #3498db !important;
+    background-color: #f8f9fa !important;
   }
 
-  .luxury-navbar .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 1px;
-    background: #d4af37;
-    transition: all 0.4s ease;
-    transform: translateX(-50%);
-  }
-
-  .luxury-navbar .nav-link:hover::after {
-    width: 70%;
-  }
-
-  .luxury-navbar .nav-link i {
+  .ecommerce-navbar .nav-link i {
     font-size: 0.8rem;
-    color: #d4af37;
+    color: #3498db;
   }
 
   .btn-login, .btn-register {
-    border-radius: 0;
+    border-radius: 4px;
     padding: 0.7rem 1.5rem !important;
-    letter-spacing: 1.5px;
     font-weight: 500;
-    transition: all 0.4s ease;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid transparent;
+    transition: all 0.3s ease;
   }
 
   .btn-login {
     background: transparent;
-    color: rgba(255, 255, 255, 0.9) !important;
-    border-color: rgba(52, 152, 219, 0.4);
+    color: #34495e !important;
+    border: 1px solid #bdc3c7;
   }
 
   .btn-login:hover {
-    background: rgba(52, 152, 219, 0.1) !important;
-    border-color: rgba(52, 152, 219, 0.7);
+    background: #f8f9fa !important;
+    border-color: #95a5a6;
   }
 
   .btn-register {
-    background: transparent;
-    color: rgba(255, 255, 255, 0.9) !important;
-    border-color: rgba(46, 204, 113, 0.4);
+    background: #3498db;
+    color: white !important;
+    border: 1px solid #3498db;
   }
 
   .btn-register:hover {
-    background: rgba(46, 204, 113, 0.1) !important;
-    border-color: rgba(46, 204, 113, 0.7);
+    background: #2980b9 !important;
+    border-color: #2980b9;
   }
 
-  .luxury-navbar .navbar-toggler {
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  .ecommerce-navbar .navbar-toggler {
+    border: 1px solid #bdc3c7;
     padding: 0.5rem;
   }
 
-  .luxury-navbar .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28212, 175, 55, 0.8%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  .ecommerce-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%2852, 152, 219, 0.8%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
   }
 
   .dropdown-menu {
-    background-color: #1a1a2e;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 0;
+    background-color: #ffffff;
+    border: 1px solid #ecf0f1;
+    border-radius: 4px;
     padding: 0.5rem 0;
     min-width: 220px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   }
 
   .dropdown-item {
-    color: rgba(255, 255, 255, 0.7);
+    color: #34495e;
     padding: 0.6rem 1.5rem;
     font-size: 0.8rem;
     transition: all 0.3s ease;
-    position: relative;
   }
 
   .dropdown-item:hover {
-    background-color: rgba(212, 175, 55, 0.1);
-    color: #ffffff;
-    padding-left: 1.8rem;
+    background-color: #f8f9fa;
+    color: #3498db;
   }
 
   .dropdown-item i {
     width: 20px;
     text-align: center;
     margin-right: 10px;
-    color: #d4af37;
+    color: #3498db;
   }
 
   .dropdown-divider {
-    border-color: rgba(255, 255, 255, 0.05);
+    border-color: #ecf0f1;
     margin: 0.3rem 0;
   }
 
   .dropdown-header {
-    color: #d4af37;
+    color: #7f8c8d;
     font-size: 0.7rem;
-    letter-spacing: 1px;
+    font-weight: 600;
     padding: 0.5rem 1.5rem;
   }
 
@@ -283,11 +229,11 @@
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background: rgba(212, 175, 55, 0.2);
+    background: #e0f2fe;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #d4af37;
+    color: #3498db;
     font-size: 0.9rem;
     overflow: hidden;
   }
@@ -300,12 +246,12 @@
 
   .username {
     font-size: 0.85rem;
-    letter-spacing: 0.5px;
+    color: #2c3e50;
   }
 
   .cart-badge {
-    background: #d4af37;
-    color: #1a1a2e;
+    background: #e74c3c;
+    color: white;
     font-size: 0.6rem;
     font-weight: bold;
     padding: 0.15rem 0.35rem;
@@ -315,12 +261,58 @@
     margin-left: 3px;
   }
 
+  .search-container {
+    margin: 0 1rem;
+    position: relative;
+    width: 300px;
+  }
+
+  .search-input {
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    border: 1px solid #dfe6e9;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+  }
+
+  .search-input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+  }
+
+  .search-btn {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #7f8c8d;
+  }
+
+  .dropdown-icon {
+    font-size: 0.7rem;
+    color: #95a5a6;
+    transition: transform 0.3s ease;
+  }
+
+  .ecommerce-dropdown.show .dropdown-icon {
+    transform: rotate(180deg);
+    color: #3498db;
+  }
+
   @media (max-width: 991.98px) {
-    .luxury-navbar {
-      padding: 0.8rem 1.5rem;
+    .ecommerce-navbar {
+      padding: 0.8rem 1rem;
     }
     
-    .luxury-navbar .nav-link {
+    .search-container {
+      width: 100%;
+      margin: 1rem 0;
+      order: 1;
+    }
+    
+    .ecommerce-navbar .nav-link {
       padding: 0.75rem 1rem !important;
       margin: 0.1rem 0;
     }
