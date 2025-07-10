@@ -171,12 +171,14 @@
                 <div class="product-name"><%= product.name %></div>
                 <div class="product-desc"><%= product.title %></div>
                 <div class="product-price">
-                  <span class="text-muted text-decoration-line-through me-2">
-                    Rs: <%= product.price + 1020 %>
-                  </span>
-                  <span class="text-danger fw-bold">
-                    ₹<%= product.price %>
-                  </span>
+               <div class="d-flex flex-wrap align-items-center">
+  <span class="text-muted text-decoration-line-through me-2 small">
+    Rs: <%= product.price + 436 %>
+  </span>
+  <span class="text-danger fw-bold small">
+    ₹<%= product.price %>
+  </span>
+</div>
                 </div>
               </div>
             </div>
@@ -186,4 +188,3 @@
     </div>
   <% } %>
 </div>
-
