@@ -2,172 +2,120 @@
 
 <style>
   :root {
-    --primary: #6c63ff;
-    --accent: #82cfff;
-    --light-bg: #f9fbfd;
+    --primary: #007bff;
+    --bg: #f0f8ff;
+    --text: #343a40;
     --white: #ffffff;
-    --border: #e0e0e0;
-    --text: #2d2d2d;
-    --hover: #5e5ce6;
-    --placeholder: #a0a0a0;
+    --border: #ced4da;
+    --placeholder: #6c757d;
   }
 
   body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--light-bg);
-    color: var(--text);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-
-  main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 20px;
+    background-color: var(--bg);
   }
 
   .signup-container {
-    width: 100%;
-    max-width: 460px;
-    background: var(--white);
-    border: 1px solid var(--border);
+    max-width: 440px;
+    margin: 70px auto;
+    padding: 40px 30px;
+    background-color: var(--white);
     border-radius: 16px;
-    padding: 36px 30px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 25px rgba(0, 123, 255, 0.1);
+    border: 1px solid var(--border);
   }
 
-  .signup-header {
+  .signup-title {
     text-align: center;
-    margin-bottom: 28px;
-  }
-
-  .signup-header h1 {
     font-size: 26px;
-    font-weight: 700;
     color: var(--primary);
-  }
-
-  .signup-header p {
-    font-size: 14px;
-    color: #6c757d;
+    margin-bottom: 30px;
+    font-weight: 600;
   }
 
   .form-control {
-    width: 100%;
-    padding: 12px 16px;
-    margin-bottom: 18px;
     border-radius: 10px;
     border: 1px solid var(--border);
-    background-color: #fff;
-    font-size: 15px;
+    padding: 14px;
+    font-size: 16px;
     color: var(--text);
-    transition: 0.3s ease;
   }
 
   .form-control::placeholder {
     color: var(--placeholder);
   }
 
-  .form-control:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
-  }
-
   .signup-btn {
-    width: 100%;
-    padding: 12px;
-    background: linear-gradient(to right, var(--primary), var(--accent));
-    color: white;
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 14px;
     border: none;
+    width: 100%;
     border-radius: 10px;
     font-weight: 600;
     font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s ease;
+    transition: background-color 0.3s ease;
   }
 
   .signup-btn:hover {
-    background: var(--hover);
+    background-color: #0056b3;
   }
 
-  .google-login-btn {
-    width: 100%;
-    padding: 12px;
-    background: #eef2ff;
+  .google-btn {
+    background-color: #ffffff;
     border: 1px solid var(--border);
-    border-radius: 10px;
+    color: var(--text);
     font-weight: 500;
     font-size: 15px;
-    color: var(--text);
+    border-radius: 10px;
+    padding: 12px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    margin-top: 16px;
-    transition: 0.3s ease;
-    text-decoration: none;
+    margin-top: 15px;
+    transition: background-color 0.2s;
   }
 
-  .google-login-btn:hover {
-    background-color: #e0e7ff;
+  .google-btn img {
+    width: 20px;
+    height: 20px;
   }
 
-  .signup-footer {
-    margin-top: 28px;
-    text-align: center;
-    font-size: 14px;
-  }
-
-  .signup-footer a {
-    color: var(--primary);
-    font-weight: 500;
-    text-decoration: none;
-  }
-
-  .signup-footer a:hover {
-    color: var(--hover);
+  .google-btn:hover {
+    background-color: #f1f3f5;
   }
 
   @media (max-width: 576px) {
     .signup-container {
-      padding: 28px 20px;
-    }
-
-    .signup-header h1 {
-      font-size: 22px;
+      margin: 30px 15px;
+      padding: 25px 20px;
     }
   }
 </style>
 
-<main>
-  <div class="signup-container">
-    <div class="signup-header">
-      <h1>Create Account</h1>
-      <p>Join us and start shopping now</p>
+<div class="signup-container">
+  <div class="signup-title">Create Account</div>
+  <form action="/register" method="POST">
+    <div class="mb-3">
+      <input type="text" name="username" class="form-control" placeholder="Username" required />
     </div>
-
-    <form action="/register" method="POST">
-      <input type="text" name="username" class="form-control" placeholder="Username" required>
-      <input type="email" name="email" class="form-control" placeholder="Email" required>
-      <input type="password" name="password" class="form-control" placeholder="Password" required>
-      <button type="submit" class="signup-btn">Sign Up</button>
-    </form>
-
-    <a href="/auth/google" class="google-login-btn">
-      <i class="fab fa-google"></i> Continue with Google
-    </a>
-
-    <div class="signup-footer">
-      Already have an account? <a href="/login">Login</a>
+    <div class="mb-3">
+      <input type="email" name="email" class="form-control" placeholder="Email" required />
     </div>
-  </div>
-</main>
+    <div class="mb-3">
+      <input type="password" name="password" class="form-control" placeholder="Password" required />
+    </div>
+    <div class="mb-4">
+      <input type="password" name="confirmPassword" class="form-control" placeholder="Confirm Password" required />
+    </div>
+    <button type="submit" class="signup-btn">Sign Up</button>
+  </form>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
+  <form action="/auth/google" method="GET">
+    <button type="submit" class="google-btn">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google Logo" />
+      Sign up with Google
+    </button>
+  </form>
+</div>
