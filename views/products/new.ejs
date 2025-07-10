@@ -4,12 +4,12 @@
   <div class="row justify-content-center">
     <div class="col-md-8 col-lg-6">
       <div class="card border-0 shadow-lg animate__animated animate__fadeIn">
-        <div class="card-header bg-gradient-dark text-white py-4">
+        <div class="card-header bg-gradient-blue text-white py-4">
           <h2 class="h4 mb-0 text-center"><i class="bi bi-box-seam me-2"></i>Add New Product</h2>
         </div>
         <div class="card-body p-5">
           <form action="/products" method="POST">
-            
+
             <div class="mb-4">
               <label for="title" class="form-label fw-medium text-muted">Product Name</label>
               <div class="input-group">
@@ -43,7 +43,7 @@
             </div>
 
             <div class="d-grid mt-5">
-              <button type="submit" class="btn btn-gradient-primary btn-lg py-3 fw-bold">
+              <button type="submit" class="btn btn-gradient-blue btn-lg py-3 fw-bold">
                 <i class="bi bi-plus-circle-fill me-2"></i>Add Product
               </button>
             </div>
@@ -56,49 +56,61 @@
 
 <style>
   body {
-    background-color: grey;
+    background-color: #e8f0fe;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
+
   .card {
     border-radius: 12px;
     overflow: hidden;
     transition: transform 0.3s ease;
   }
+
   .card:hover {
     transform: translateY(-5px);
   }
+
   .card-header {
     border-bottom: none;
   }
-  .bg-gradient-dark {
-    background: linear-gradient(135deg, #2c3e50, #1a1a2e);
+
+  .bg-gradient-blue {
+    background: linear-gradient(135deg, #3a7bd5, #007cf0);
   }
-  .btn-gradient-primary {
+
+  .btn-gradient-blue {
     background: linear-gradient(135deg, #3a7bd5, #00d2ff);
     border: none;
     border-radius: 8px;
     transition: all 0.3s ease;
+    color: white;
   }
-  .btn-gradient-primary:hover {
+
+  .btn-gradient-blue:hover {
     background: linear-gradient(135deg, #00d2ff, #3a7bd5);
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
   }
+
   .form-control {
     border-left: 0 !important;
-    border-color: #e2e8f0;
+    border-color: #d0e0ff;
     transition: border-color 0.3s ease;
   }
+
   .form-control:focus {
-    border-color: #94a3b8 !important;
-    box-shadow: 0 0 0 0.25rem rgba(100, 149, 237, 0.15);
+    border-color: #4688f1 !important;
+    box-shadow: 0 0 0 0.25rem rgba(70, 136, 241, 0.2);
   }
+
   .input-group-text {
     border-right: 0;
-    background-color: #f8fafc !important;
-    border-color: #e2e8f0;
+    background-color: #f0f4ff !important;
+    border-color: #d0e0ff;
   }
+
   .animate__animated {
     animation-duration: 0.5s;
   }
 </style>
+
