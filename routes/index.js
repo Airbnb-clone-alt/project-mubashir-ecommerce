@@ -5,8 +5,9 @@ const router = express.Router();
 const passport = require('passport');
 const User = require('../models/user');
 
+
 router.get('/', (req, res) => {
-  res.render('home');  // EJS template render karega
+  res.redirect("/products");
 });
 
 
