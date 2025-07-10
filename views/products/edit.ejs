@@ -2,21 +2,24 @@
 
 <style>
   .edit-product-container {
-    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+    background: linear-gradient(135deg, #eaf4ff 0%, #d6e6f2 100%);
     padding: 3rem;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
   }
+
   .edit-product-header {
-    color: #2d3748;
+    color: #1e3a5f;
     border-bottom: 1px solid rgba(45, 55, 72, 0.1);
     padding-bottom: 1.5rem;
     margin-bottom: 2.5rem;
   }
+
   .edit-product-header h1 {
     font-weight: 700;
     letter-spacing: -0.5px;
   }
+
   .edit-product-form {
     background-color: #ffffff;
     border-radius: 10px;
@@ -24,48 +27,57 @@
     box-shadow: 0 4px 20px rgba(0,0,0,0.03);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
+
   .edit-product-form:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 25px rgba(0,0,0,0.08);
   }
+
   .form-label {
-    color: #4a5568;
+    color: #334e68;
     font-weight: 600;
     margin-bottom: 0.5rem;
     font-size: 0.95rem;
   }
+
   .form-control {
-    border: 1px solid #e2e8f0;
+    border: 1px solid #c8d5e1;
     border-radius: 8px;
     padding: 0.75rem 1rem;
-    background-color: #f8fafc;
+    background-color: #f0f6fb;
     transition: all 0.3s ease;
   }
+
   .form-control:focus {
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+    border-color: #3a7bd5;
+    box-shadow: 0 0 0 3px rgba(58, 123, 213, 0.15);
     background-color: #ffffff;
   }
+
   .input-group-text {
-    background-color: #edf2f7;
-    border-color: #e2e8f0;
-    color: #4a5568;
+    background-color: #eaf2fb;
+    border-color: #c8d5e1;
+    color: #2c3e50;
   }
+
   .btn-update {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #3a7bd5 0%, #00d2ff 100%);
     border: none;
     border-radius: 8px;
     padding: 0.75rem 2rem;
     font-weight: 600;
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
   }
+
   .btn-update:hover {
-    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 6px 20px rgba(0, 210, 255, 0.4);
   }
+
   .btn-outline-secondary {
     border-radius: 8px;
     padding: 0.75rem 2rem;
@@ -73,12 +85,15 @@
     transition: all 0.3s ease;
     border-width: 2px;
   }
+
   .btn-outline-secondary:hover {
-    background-color: #edf2f7;
+    background-color: #eaf2fb;
   }
+
   .animate-fade-in {
     animation: fadeIn 0.6s ease-out forwards;
   }
+
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
@@ -96,7 +111,7 @@
       <label for="title" class="form-label">Product Title</label>
       <div class="input-group">
         <span class="input-group-text"><i class="fas fa-heading"></i></span>
-        <input type="text" name="product[title]" id="title" class="form-control" 
+        <input type="text" name="product[title]" id="title" class="form-control"
                value="<%= product.title %>" required placeholder="Enter product name">
       </div>
     </div>
@@ -105,7 +120,7 @@
       <label for="description" class="form-label">Description</label>
       <div class="input-group">
         <span class="input-group-text align-items-start"><i class="fas fa-align-left mt-1"></i></span>
-        <textarea name="product[description]" id="description" class="form-control" 
+        <textarea name="product[description]" id="description" class="form-control"
                   rows="5" placeholder="Enter detailed product description"><%= product.description %></textarea>
       </div>
     </div>
@@ -115,7 +130,7 @@
         <label for="price" class="form-label">Price</label>
         <div class="input-group">
           <span class="input-group-text"><i class="fas fa-rupee-sign"></i></span>
-          <input type="number" name="product[price]" id="price" class="form-control" 
+          <input type="number" name="product[price]" id="price" class="form-control"
                  value="<%= product.price %>" step="0.01" min="0" required placeholder="0.00">
         </div>
       </div>
@@ -124,7 +139,7 @@
         <label for="image" class="form-label">Image URL</label>
         <div class="input-group">
           <span class="input-group-text"><i class="fas fa-image"></i></span>
-          <input type="url" name="product[image]" id="image" class="form-control" 
+          <input type="url" name="product[image]" id="image" class="form-control"
                  value="<%= product.image %>" required placeholder="https://example.com/image.jpg">
         </div>
       </div>
