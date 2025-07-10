@@ -2,238 +2,114 @@
 
 <style>
   :root {
-    --primary: #4dabf7;
-    --secondary: #b197fc;
-    --accent-success: #63e6be;
-    --accent-warn: #ffc078;
-    --text-main: #2d3436;
-    --text-muted: #868e96;
-    --bg-page: #f8f9fa;
-    --bg-card: #ffffff;
-    --border-light: #e9ecef;
+    --primary: #007bff;
+    --bg: #f0f8ff;
+    --text: #343a40;
+    --white: #ffffff;
+    --border: #ced4da;
+    --placeholder: #6c757d;
   }
-
 
   body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: rgb(188, 232, 216);
-    color: var(--text-main);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    background-color: var(--bg);
   }
 
-  main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 20px;
-  }
-
-  .auth-container {
-    width: 100%;
-    max-width: 460px;
-    background: var(--bg-card);
+  .login-container {
+    max-width: 420px;
+    margin: 70px auto;
+    padding: 40px 30px;
+    background-color: var(--white);
     border-radius: 16px;
-    padding: 36px 30px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-    border: 1px solid var(--border-light);
+    box-shadow: 0 4px 25px rgba(0, 123, 255, 0.1);
+    border: 1px solid var(--border);
   }
 
-  .auth-header {
+  .login-title {
     text-align: center;
-    margin-bottom: 28px;
-  }
-
-  .auth-header h1 {
     font-size: 26px;
-    font-weight: 700;
     color: var(--primary);
-  }
-
-  .auth-header p {
-    font-size: 14px;
-    color: var(--text-muted);
-  }
-
-  .form-group {
-    margin-bottom: 20px;
-    position: relative;
+    margin-bottom: 30px;
+    font-weight: 600;
   }
 
   .form-control {
-    width: 100%;
-    padding: 12px 14px 12px 40px;
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-light);
     border-radius: 10px;
-    font-size: 15px;
-    color: var(--text-main);
-    transition: all 0.3s ease;
+    border: 1px solid var(--border);
+    padding: 14px;
+    font-size: 16px;
+    color: var(--text);
   }
 
-  .form-control:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(77, 171, 247, 0.2);
-    outline: none;
+  .form-control::placeholder {
+    color: var(--placeholder);
   }
 
-  .input-icon {
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-muted);
-  }
-
-  .password-toggle {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    color: var(--text-muted);
-  }
-
-  .auth-btn {
-    width: 100%;
-    padding: 12px;
-    background-color:  var(--secondary);
-    color: white;
+  .login-btn {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 14px;
     border: none;
+    width: 100%;
     border-radius: 10px;
     font-weight: 600;
     font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease;
   }
 
-  .auth-btn:hover {
-    background-color: var(--secondary);
+  .login-btn:hover {
+    background-color: #0056b3;
   }
 
-  .google-login-btn {
-    width: 100%;
-    padding: 12px;
-    background: #ecefff;
-    color: var(--text-main);
-    border: 1px solid var(--border-light);
-    border-radius: 10px;
+  .google-btn {
+    background-color: #ffffff;
+    border: 1px solid var(--border);
+    color: var(--text);
     font-weight: 500;
     font-size: 15px;
+    border-radius: 10px;
+    padding: 12px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    margin-top: 16px;
-    transition: background 0.3s ease;
-    text-decoration: none;
+    margin-top: 15px;
+    transition: background-color 0.2s;
   }
 
-  .google-login-btn:hover {
-    background-color: #dee8ff;
+  .google-btn img {
+    width: 20px;
+    height: 20px;
   }
 
-  .divider {
-    display: flex;
-    align-items: center;
-    margin: 20px 0;
-    font-size: 13px;
-    color: var(--text-muted);
+  .google-btn:hover {
+    background-color: #f1f3f5;
   }
 
-  .divider::before,
-  .divider::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border-light);
-    margin: 0 10px;
-  }
-
-  .forgot-password {
-    display: block;
-    text-align: right;
-    font-size: 13px;
-    margin-bottom: 12px;
-  }
-
-  .forgot-password a {
-    color: var(--primary);
-    text-decoration: none;
-  }
-
-  .forgot-password a:hover {
-    color: var(--secondary);
-  }
-
-  .auth-footer {
-    margin-top: 28px;
-    text-align: center;
-    font-size: 14px;
-  }
-
-  .auth-footer a {
-    color: var(--primary);
-    font-weight: 500;
-    text-decoration: none;
-  }
-
-  .auth-footer a:hover {
-    color: var(--secondary);
+  @media (max-width: 576px) {
+    .login-container {
+      margin: 30px 15px;
+      padding: 25px 20px;
+    }
   }
 </style>
 
-<main>
-  <div class="auth-container">
-    <div class="auth-header">
-      <h1>Welcome Back</h1>
-      <p>Please enter your credentials to login</p>
+<div class="login-container">
+  <div class="login-title">Login to Your Account</div>
+  <form action="/login" method="POST">
+    <div class="mb-3">
+      <input type="text" name="username" class="form-control" placeholder="Username" required />
     </div>
-
-    <form action="/login" method="POST">
-      <div class="form-group">
-        <i class="fas fa-user input-icon"></i>
-        <input type="text" name="username" class="form-control" placeholder="Username" required>
-      </div>
-
-      <div class="form-group">
-        <i class="fas fa-lock input-icon"></i>
-        <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
-        <i class="fas fa-eye password-toggle" id="togglePassword"></i>
-      </div>
-
-      <a href="/forgot-password" class="forgot-password">Forgot Password?</a>
-
-      <button type="submit" class="auth-btn">Login</button>
-
-      <div class="divider">OR</div>
-
-      <a href="/auth/google" class="google-login-btn">
-        <i class="fab fa-google"></i> Continue with Google
-      </a>
-    </form>
-
-    <div class="auth-footer">
-      <span>Don't have an account?</span>
-      <a href="/register"> Create Account</a>
+    <div class="mb-4">
+      <input type="password" name="password" class="form-control" placeholder="Password" required />
     </div>
-  </div>
-</main>
+    <button type="submit" class="login-btn">Login</button>
+  </form>
 
-<script>
-  const toggle = document.getElementById('togglePassword');
-  const pass = document.getElementById('password');
-
-  toggle.addEventListener('click', () => {
-    const type = pass.getAttribute('type') === 'password' ? 'text' : 'password';
-    pass.setAttribute('type', type);
-    toggle.classList.toggle('fa-eye');
-    toggle.classList.toggle('fa-eye-slash');
-  });
-</script>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <form action="/auth/google" method="GET">
+    <button type="submit" class="google-btn">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google Logo" />
+      Login with Google
+    </button>
+  </form>
+</div>
